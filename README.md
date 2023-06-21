@@ -1,6 +1,6 @@
 # STARS 2023 Design Final Project
 
-## SILLY SYNTH SPECIALISTS
+## Silly Synth Specialists (Triple SSS)
 * Austin Bohlmann
 * Ethan Christie
 * Adam Mack
@@ -9,7 +9,7 @@
 
 ## Silly Synthesizer
 Description of functionality, how to use it, and any supporting equipment required
-//This project uses SystemVerilog to create a simple synthesizer. The design will be able to interface with a speaker!
+This project uses SystemVerilog to create a simple synthesizer. The design will be able to interface with a speaker!
 
 ## Pin Layout
 Put all the GPIO pin numbers, i/o/io determination, and labels
