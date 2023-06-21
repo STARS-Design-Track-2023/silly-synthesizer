@@ -1,13 +1,13 @@
 # STARS 2023 Design Final Project
 
-## [Team Name]
-* [Name]
-* [Name]
-* [Name]
-* [Name]
-* [TA]
+## TripleSSS
+* Adam Mack
+* Andre Ponsot
+* Austin Bohlmann
+* Ethan Christie 
+* Noah Rediker
 
-## [Project Name]
+## silly synth 
 Description of functionality, how to use it, and any supporting equipment required
 
 ## Pin Layout
