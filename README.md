@@ -1,14 +1,14 @@
 # STARS 2023 Design Final Project
 
-## [Team Name]
-* [Name]
-* [Name]
-* [Name]
-* [Name]
-* [TA]
+## [Triple SSS]
+* Ethan Christie
+* Adam Mack
+* Austin Bohlmann
+* Andre Ponsot
+* Noah Rediker
 
-## [Project Name]
-Description of functionality, how to use it, and any supporting equipment required
+## [Silly Synthesizer]
+The synthesizer will play notes over a five octave range, over four different modes of wave. It will also have the ability to play a series of random notes 4 times a second when the "goof-off mode" is activated.
 
 ## Pin Layout
 Put all the GPIO pin numbers, i/o/io determination, and labels
