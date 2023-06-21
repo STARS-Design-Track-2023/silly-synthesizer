@@ -8,7 +8,7 @@
 * Noah Rediker
 
 ## Silly Synthesizer
-A synthesizer with multiple note buttons, an octave button, a button to select the shape of the wave, and a goof-off button.
+A synthesizer with multiple note buttons, two octave buttons (one for raising the octave one for lowering), a button to select the shape of the wave, and a goof-off button.
 
 ## Pin Layout
 Put all the GPIO pin numbers, i/o/io determination, and labels
