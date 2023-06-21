@@ -1,14 +1,14 @@
 # STARS 2023 Design Final Project
 
-## [Team Name]
-* [Name]
-* [Name]
-* [Name]
-* [Name]
-* [TA]
+## Silly Synthesizer Specialists
+* Andre Ponsot
+* Ethan Christie
+* Austin Bohlmann
+* Adam Mack
+* Noah Rediker
 
-## [Project Name]
-Description of functionality, how to use it, and any supporting equipment required
+## Silly Synthesizer
+A synthesizer with multiple note buttons, an octave button, a button to select the shape of the wave, and a goof-off button.
 
 ## Pin Layout
 Put all the GPIO pin numbers, i/o/io determination, and labels
