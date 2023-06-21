@@ -1,13 +1,13 @@
 # STARS 2023 Design Final Project
 
-## TripleSSS
+## TripleSSS (Silly Synth Specialists)
 * Adam Mack
 * Andre Ponsot
 * Austin Bohlmann
 * Ethan Christie 
 * Noah Rediker
 
-## silly synth 
+## Silly Synth 
 Description of functionality, how to use it, and any supporting equipment required
 
 ## Pin Layout
