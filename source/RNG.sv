@@ -1,5 +1,5 @@
 module rng( 
-    input logic clk, nrst,
+    input logic clk, nrst, pulse, en,
     output logic [15:0] out,
     output logic [5:0] note
 );
@@ -18,9 +18,12 @@ module rng(
     logic [5:0] next_note;
 
     always_comb begin
-        next_note = {note[4:0],feedback_2};
-        if (out[15] == 1)
-            next_note = ~{note[4:0],feedback_2};
+        next_note = note;
+        if (pulse & en) begin
+            next_note = {note[4:0],feedback_2};
+            if (out[15] == 1)
+                next_note = ~{note[4:0],feedback_2};
+        end
     end
 
     always_ff @ (posedge clk, negedge nrst) begin 
