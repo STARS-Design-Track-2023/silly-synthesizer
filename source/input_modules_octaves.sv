@@ -3,15 +3,17 @@ typedef enum logic [2:0] {s1, s2, s3, s4, s5}
 state_t; 
 state_t state;
 state_t next_state; 
-always_ff @(posedge clk, negedge n_rst) begin 
-if(n_rst==0) begin 
-state<=s1; 
+always_ff @(posedge clk, negedge n_rst) 
+begin 
+  if(n_rst==0) begin 
+  state<=s1; 
 end 
-else begin
-state<=next_state; 
+  else 
+begin
+  state<=next_state; 
 end 
 end 
-always_comb 
+  always_comb 
 begin 
 next_state=state;
  case(state) 
