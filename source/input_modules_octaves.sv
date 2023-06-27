@@ -1,5 +1,10 @@
-module octaves(input logic clk, n_rst,octave_key_up,octave_key_down, output logic octave); 
+module octaves
+  (input logic clk, n_rst,octave_key_up,octave_key_down, 
+   output logic octave); 
+
+
 typedef enum logic [2:0] {s1, s2, s3, s4, s5} 
+
 state_t; 
 state_t state;
 state_t next_state; 
@@ -13,6 +18,8 @@ begin
   state<=next_state; 
 end 
 end 
+ 
+ 
   always_comb 
 begin 
 next_state=state;
