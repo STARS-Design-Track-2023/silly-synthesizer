@@ -18,6 +18,6 @@ module waveshaper
     end
 
     always_comb begin
-        wave_out = wave[7:0];
+        wave_out = wave[9:2];
     end
 endmodule
