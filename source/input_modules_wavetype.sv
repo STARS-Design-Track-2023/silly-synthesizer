@@ -1,4 +1,4 @@
-module moore1101(input logic clk, n_rst,mode_key, output logic mode); 
+module wavetype(input logic clk, n_rst, mode_key, output logic mode); 
 
 typedef enum logic [2:0] {s1, s2, s3, s4} state_t; 
 
