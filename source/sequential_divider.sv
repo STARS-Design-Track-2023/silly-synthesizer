@@ -1,7 +1,105 @@
-module sequential_divider(input logic clk, nrst, clk_div,
+module sequential_divider(input logic clk, nrst, sample_now,
                             input logic [17:0] divisor, input logic [17:0] oscillator_out,
-                            output logic [7:0] q_out);
-//
+                            output logic [7:0] q_out,
+                            output logic done);
+logic [4:0] count, next_count;
+logic start, next_start, div, next_div;
+logic [26:0] a_part1, q, next_q, q_part1, a, next_a, next_m, m;
+//logic [17:0] store_count, store_divisor;
+
+always_comb begin
+    if(sample_now) begin
+        next_a = 0;
+        next_m = {1'b0, 8'b0, divisor};
+        next_q = {1'b0, oscillator_out, 8'b0};
+        next_count = 0;
+        a_part1 = 0;
+        q_part1 = 0;
+        done = 0;
+
+        next_start = 1;
+        next_div = 0;
+
+        q_out = 0;
+    end
+    else if(count < (27) & (start)) begin
+        {a_part1, q_part1} = {a, q} << 1;
+        next_m = m;
+
+        if(a_part1[26] == 1'b1) begin
+            next_a = a_part1 + m;
+        end
+        else begin
+            next_a = a_part1 - m;
+        end
+
+        if(next_a[26] == 1'b1) begin
+            next_q = q_part1;
+        end
+        else begin
+            next_q = q_part1 + 1;
+        end
+
+        next_count = count + 1;
+        done = 0;
+
+        next_start = 1;
+        next_div = 1;
+
+        q_out = 0;
+    end
+    else if(div) begin
+        done = 1;
+        next_q = q;
+        q_part1 = 0;
+        next_m = m;
+        next_a = a;
+        a_part1 = 0;
+        next_count = count;
+
+        next_start = 0;
+        next_div = 0;
+
+        q_out = q[7:0];
+    end
+    else begin
+        done = 0;
+        next_q = q;
+        q_part1 = 0;
+        next_m = m;
+        next_a = a;
+        a_part1 = 0;
+        next_count = count;
+
+        next_start = 0;
+        next_div = 0;
+
+        q_out = q[7:0];
+    end
+end
+
+always_ff @(posedge clk, negedge nrst) begin
+    if(!nrst) begin
+        count <= 0;
+        q <= 0;
+        m <= 0;
+        a <= 0;
+
+        start <= 0;
+        div <= 0;
+    end else begin
+        count <= next_count;
+        q <= next_q;
+        m <= next_m;
+        a <= next_a;
+
+        start <= next_start;
+        div <= next_div;
+    end
+end
+endmodule
+
+/*
 logic [25:0] remainder;
 logic [17:0] in_divide;
 logic [17:0] next_divide;
@@ -34,7 +132,7 @@ end
 
 always_comb begin
     next_mode = mode;
-    if(in_buffer) begin
+    if(clk_div) begin
         case(mode)
         off: next_mode = div;
         div: next_mode = done;
@@ -42,8 +140,6 @@ always_comb begin
         default: next_mode = off; 
         endcase
     end
-    else
-        next_mode = mode;
 end
 
 //Controlling the primary inputs to the divider so that they are updated only when the previous division is complete
@@ -59,15 +155,11 @@ always_ff @ (posedge clk, negedge nrst) begin
 end
 
 always_comb begin
-    next_count = count;
+    next_count = count + 1;
     next_buffer = 1'b0;
     if(count == 5'b10010) begin
         next_count = 5'b0;
         next_buffer = 1'b1;
-    end
-    else begin
-        next_count = count + 1;
-        next_buffer = 1'b0;
     end
 end
 
@@ -96,9 +188,8 @@ always_comb begin
         next_Q = 8'b0;
     end
     else if(mode == div) begin
-        comp = ({10'b0, (remainder[24:17])} >= in_divide);
-        next_Q = (shaped_sig << 1) + {7'b0, comp};
-        next_remainder = comp ? ((remainder << 1) - {8'b0, (in_divide << 8)}) : (remainder << 1);
+        next_Q = (shaped_sig << 1) + {7'b0, ({5'b0, remainder[24:12]} >= in_divide)};
+        next_remainder = ({5'b0, remainder[24:12]} >= in_divide) ? ((remainder << 1) - {8'b0, (in_divide << 8)}) : (remainder << 1);
         next_divide = in_divide;
     end
     else begin
@@ -126,5 +217,4 @@ always_comb begin
         next_out = q_out;
     end
 end
-
-endmodule
+*/
