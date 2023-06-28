@@ -1,11 +1,11 @@
 # STARS 2023 Design Final Project
 
-## Silly Synth Specialists (Triple SSS)
-* Austin Bohlmann
-* Ethan Christie
-* Adam Mack
-* Andre Ponsot
-* Noah Rediker
+## [Team Name]
+* [Name]
+* [Name]
+* [Name]
+* [Name]
+* [TA]
 
 ## Silly Synthesizer
 A synthesizer with multiple note buttons, two octave buttons (one for raising the octave one for lowering), a button to select the shape of the wave, and a goof-off button.
