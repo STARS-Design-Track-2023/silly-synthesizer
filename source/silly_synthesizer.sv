@@ -25,5 +25,7 @@ assign keypad = cs ? 17'b0 : {octave_key_up, octave_key_down, mode_key, goof_key
 // Output
 assign gpio[33] = cs ? 1'b0 : pwm_output;
 
+input_driver inputs (clk, nrst, keypad, divider, mode, strobe);
+output_driver outputs (clk, nrst, divider, mode, strobe, pwm_output);
 
 endmodule
