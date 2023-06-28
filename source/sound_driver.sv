@@ -12,9 +12,7 @@ logic pulse, pwm_signal;
 
 oscillator sig_gen (divider, clk, nrst, signal);
 clock_div39kHz sample_rate (clk, nrst, pulse);
-// q_out = 256 * oscillator / divisor
-// seq_div
-assign scaled_signal = (256 * signal) / divider;
+sequential_divider div (clk, nrst, pulse, divider, signal, scaled_signal);
 waveshaper shaper (divider, signal, scaled_signal, mode, wave);
 pwm output_gen (clk, nrst, strobe, wave, pwm_signal);
 
