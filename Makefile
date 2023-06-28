@@ -19,11 +19,11 @@ TOP_FILE         := silly_synthesizer.sv
 
 # List internal component/block files here (separate the filenames with spaces)
 # NOTE: YOU WILL NEED TO SET THIS VARIABLE'S VALUE WHEN WORKING WITH HEIRARCHICAL DESIGNS
-COMPONENT_FILES  := clock_div4Hz.sv
+COMPONENT_FILES  := clock_div4Hz.sv clock_div39kHz.sv edge_det.sv freq_table.sv input_driver.sv input_modules_keypad.sv input_modules_octaves.sv input_modules_wavetype.sv oscillator.sv pwm.sv RNG.sv sound_driver.sv synch.sv waveshaper.sv
 
 # Specify the filepath of the test bench you want to use (ie. tb_top_level.sv)
 # (do not include the source folder in the name)
-TB               := tb_top.v
+TB               :=
 
 # Get the top level design and test_bench module names
 TB_MODULE		 := $(notdir $(basename $(TB)))
