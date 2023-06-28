@@ -16,6 +16,6 @@ module top
   input  logic txready, rxready
 );
 
-silly_synthesizer synth (hwclk, ~pb[19], 1'b0, {right[0], 26'b0, pb[16:0]});
+silly_synthesizer synth (hwclk, ~pb[19], 1'b0, /*{right[0], 26'b0, pb[16:0]}*/ pb[16:0], right[1]);
 
 endmodule

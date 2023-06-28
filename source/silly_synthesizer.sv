@@ -5,7 +5,9 @@ module silly_synthesizer (
     
     // Wrapper
     input logic cs, // Chip Select (Active Low)
-    inout logic [33:0] gpio // Breakout Board Pins
+    //inout logic [33:0] gpio // Breakout Board Pins
+    input logic [16:0] gpio,
+    output logic pwm
 );
 
 logic [17:0] divider;
@@ -23,7 +25,7 @@ assign keys = gpio[12:0];
 assign keypad = cs ? 17'b0 : {octave_key_up, octave_key_down, mode_key, goof_key, keys};
 
 // Output
-assign gpio[33] = cs ? 1'b0 : pwm_output;
+assign /*gpio[33]*/ pwm = cs ? 1'b0 : pwm_output;
 
 input_driver inputs (clk, nrst, keypad, divider, mode, strobe);
 sound_driver outputs (clk, nrst, divider, mode, strobe, pwm_output);
