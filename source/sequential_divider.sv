@@ -1,10 +1,11 @@
 module sequential_divider(input logic clk, nrst, sample_now,
                             input logic [17:0] divisor, input logic [17:0] oscillator_out,
-                            output logic [7:0] q_out,
-                            output logic done);
+                            output logic [7:0] q_out);
 logic [4:0] count, next_count;
 logic start, next_start, div, next_div;
 logic [26:0] a_part1, q, next_q, q_part1, a, next_a, next_m, m;
+logic [7:0] next_out;
+logic change_out;
 //logic [17:0] store_count, store_divisor;
 
 always_comb begin
@@ -15,12 +16,12 @@ always_comb begin
         next_count = 0;
         a_part1 = 0;
         q_part1 = 0;
-        done = 0;
-
+       
         next_start = 1;
         next_div = 0;
 
-        q_out = 0;
+        next_out = q[7:0];
+        change_out = 0;
     end
     else if(count < (27) & (start)) begin
         {a_part1, q_part1} = {a, q} << 1;
@@ -41,15 +42,15 @@ always_comb begin
         end
 
         next_count = count + 1;
-        done = 0;
 
         next_start = 1;
         next_div = 1;
 
-        q_out = 0;
+        next_out = q[7:0];
+        change_out = 0;
+
     end
     else if(div) begin
-        done = 1;
         next_q = q;
         q_part1 = 0;
         next_m = m;
@@ -60,10 +61,14 @@ always_comb begin
         next_start = 0;
         next_div = 0;
 
-        q_out = q[7:0];
+        next_out = q[7:0];
+        change_out = 1;
+        if(q[8:0] == 9'b100000000)
+            next_out = 8'hff;
+
     end
     else begin
-        done = 0;
+        
         next_q = q;
         q_part1 = 0;
         next_m = m;
@@ -74,7 +79,8 @@ always_comb begin
         next_start = 0;
         next_div = 0;
 
-        q_out = q[7:0];
+        next_out = q[7:0];
+        change_out = 0;
     end
 end
 
@@ -97,8 +103,14 @@ always_ff @(posedge clk, negedge nrst) begin
         div <= next_div;
     end
 end
-endmodule
 
+always_ff @ (posedge clk, negedge nrst) begin
+    if(!nrst)
+        q_out <= 0;
+    else if(change_out)
+        q_out <= next_out;
+end
+endmodule
 /*
 logic [25:0] remainder;
 logic [17:0] in_divide;

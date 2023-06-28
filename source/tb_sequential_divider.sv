@@ -195,7 +195,7 @@ module tb_sequential_div ();
     tb_en = 0;
 
     // Wait for Division to complete
-    #(CLK_PERIOD * 11);
+    #(CLK_PERIOD * 30);
 
     // Division 1 Check
     tb_expected_quotient = 247;
@@ -211,7 +211,7 @@ module tb_sequential_div ();
     check_output("after starting division #2");
 
     // Wait for Division to complete
-    #(CLK_PERIOD * 6);
+    #(CLK_PERIOD * 30);
 
     // Division 2 Check
     tb_expected_quotient = 250;
@@ -232,7 +232,7 @@ module tb_sequential_div ();
     tb_en = 0;
 
     // Wait for Division to complete
-    #(CLK_PERIOD * 11);
+    #(CLK_PERIOD * 30);
 
     // Division 1 Check
     tb_expected_quotient = 255;
@@ -245,7 +245,7 @@ module tb_sequential_div ();
     tb_en = 0;
 
     // Wait for Division to complete
-    #(CLK_PERIOD * 11);
+    #(CLK_PERIOD * 30);
 
     // Division 2 Check
     tb_expected_quotient = 0;
