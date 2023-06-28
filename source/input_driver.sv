@@ -10,7 +10,7 @@ logic [16:0] sync_keys;
 logic [5:0] goof_index;
 logic [3:0] note;
 logic [2:0] octave;
-logic octave_up, octave_down, mode_key, goof, strobe, pulse;
+logic octave_up, octave_down, mode_key, goof, pulse;
 
 synch keypad_synchronizer (clk, nrst, keypad, sync_keys);
 keypad key_encoder (sync_keys, octave_up, octave_down, mode_key, goof, note, strobe);
