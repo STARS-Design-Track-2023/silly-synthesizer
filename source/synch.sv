@@ -1,6 +1,6 @@
 module synch
         (input logic clk, nrst, 
-        [16:0] async_keys, 
+        input logic [16:0] async_keys, 
         output logic [16:0] sync_keys);
     
     logic [16:0] half_sync;
