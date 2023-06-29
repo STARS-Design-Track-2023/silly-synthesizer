@@ -18,6 +18,9 @@ module waveshaper
     end
 
     always_comb begin
-        wave_out = wave[7:0];
+        if (wave == 10'd256)
+            wave_out = 8'hff;
+        else
+            wave_out = wave[7:0];
     end
 endmodule

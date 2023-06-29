@@ -8,8 +8,7 @@
 * Noah Rediker
 
 ## Silly Synthesizer
-Description of functionality, how to use it, and any supporting equipment required
-This project uses SystemVerilog to create a simple synthesizer. The design will be able to interface with a speaker!
+A synthesizer with multiple note buttons, two octave buttons (one for raising the octave one for lowering), a button to select the shape of the wave, and a goof-off button.
 
 ## Pin Layout
 Put all the GPIO pin numbers, i/o/io determination, and labels

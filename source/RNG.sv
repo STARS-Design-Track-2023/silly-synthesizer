@@ -1,8 +1,8 @@
 module rng( 
     input logic clk, nrst, pulse, en,
-    output logic [15:0] out,
     output logic [5:0] note
 );
+    logic [15:0] out;
     logic feedback;
     assign feedback= ~(out[10]^(out[12]^(out[13]^out[15])));
     logic feedback_2; 
