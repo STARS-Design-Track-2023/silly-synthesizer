@@ -10,20 +10,20 @@ module freq_table(input logic goof,
  * read modekey and octave as index in frequency table
 */
 
-// divider list for top notes @ 12 Mhz
-localparam C2 = 18'd183458;
-localparam Cs2 = 18'd173160;
-localparam D2 = 18'd163443;
-localparam Ds2 = 18'd154281;
-localparam E2 = 18'd145613;
-localparam F2 = 18'd137441;
-localparam Fs2 = 18'd129730;
-localparam G2 = 18'd122449;
-localparam Gs2 = 18'd115574;
-localparam A2 = 18'd109091;
-localparam As2 = 18'd102969;
-localparam B2 = 18'd97190;
-localparam C3 = 18'd91736;
+// divider list for top notes @ 10 Mhz
+localparam C2 = 18'd152882;
+localparam Cs2 = 18'd144300;
+localparam D2 = 18'd136203;
+localparam Ds2 = 18'd128568;
+localparam E2 = 18'd121345;
+localparam F2 = 18'd114534;
+localparam Fs2 = 18'd108180;
+localparam G2 = 18'd102040;
+localparam Gs2 = 18'd96311;
+localparam A2 = 18'd90909;
+localparam As2 = 18'd85807;
+localparam B2 = 18'd80991;
+localparam C3 = 18'd76446;
 
 always_comb begin
     frequency = C3 >> 1;
