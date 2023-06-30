@@ -17,7 +17,7 @@ keypad key_encoder (sync_keys, octave_up, octave_down, mode_key, goof, note, str
 edge_det up (clk, nrst, octave_up, up_pulse);
 edge_det down (clk, nrst, octave_down, down_pulse);
 edge_det mode_edge (clk, nrst, mode_key, mode_pulse);
-clock_div4Hz #(2500000) random_update_clock (clk, nrst, pulse);
+clock_div4Hz #(3000000) random_update_clock (clk, nrst, pulse);
 rng random_note_generator (clk, nrst, pulse, goof, goof_index);
 octaves octave_fsm (clk, nrst, up_pulse, down_pulse, octave);
 wavetype wavetype_fsm (clk, nrst, mode_pulse, mode);
