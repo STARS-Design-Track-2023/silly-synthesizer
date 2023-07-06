@@ -19,9 +19,8 @@ module top_level_wrapper (
         block_reset <= block_reset_int;
     end
 
-  logic out;
-  assign gpio_out[33] = gpio_oeb[33] ? 1'b0 : out;
+    assign gpio_oeb = {1'b0, {33{1'b1}}};
 
-  silly_synthesizer synth (clk, nrst /* TODO: Replace with synced and gated reset */, ncs, gpio_in[16:0], out);
+    silly_synthesizer synth (clk, block_reset, ncs, gpio_in[16:0], gpio_out[33]);
 
 endmodule
