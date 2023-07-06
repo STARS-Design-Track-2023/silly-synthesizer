@@ -10,6 +10,7 @@
 ## Silly Synthesizer
 A synthesizer with the following specifications:
 - Thirteen note buttons to play an entire octave from C to C
+- A note range from C2 to C7
 - Two octave buttons to raise or lower the octave being played
 - One button to change the shape of the wave between off, triangle, sawtooth, and square modes
 - One button to goof-off.
@@ -17,12 +18,12 @@ A synthesizer with the following specifications:
 - Supply Voltage of 3.3V
 
 ## Pin Layout
-Put all the GPIO pin numbers, i/o/io determination, and label
 Input: GPIO [0:12] keyboard, [13] mode key, [14:15] octave change, [16] goof-off
+
 Output: GPIO [33] PWM
 
 ## Supporting Equipment
-To properly output audio, the synthesizer utilizes an audio amplifier as shown below. It requires 12V supply and uses an LM393 op amp integrated circuit to amplify the analog wave output of the synthesizer device.
+To properly output audio, the synthesizer utilizes an audio amplifier as shown below. It requires 12V supply and uses an LM386 (shown as LM393 in diagram) op amp integrated circuit to amplify the analog wave output of the synthesizer device.
 ![image](https://github.com/STARS-Design-Track-2023/silly-synthesizer/assets/111792941/0efa8909-6f69-4a53-ba52-790169fb69c4)
 
 ## RTL Diagrams
