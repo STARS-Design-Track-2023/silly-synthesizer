@@ -18,7 +18,7 @@ A synthesizer with the following specifications:
 - Supply Voltage of 3.3V
 
 ## Pin Layout
-Input: GPIO [0:12] keyboard, [13] mode key, [14:15] octave change, [16] goof-off
+Input: GPIO [0:12] keyboard (C, C#, D ... A#, B, C), [13] mode key, [14:15] octave change, [16] goof-off
 
 Output: GPIO [33] PWM
 
